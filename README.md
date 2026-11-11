@@ -211,6 +211,3 @@ Frontend will open automatically at: **http://localhost:3000**
 
 ---
 
-## 📄 License
-
-MIT License
