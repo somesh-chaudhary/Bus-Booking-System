@@ -1,90 +1,105 @@
+
 <p align="center">
-  <img src="assets/banner.png" alt="Bus Ticketing Platform Banner">
+  <img src="assets/banner.png" alt="Bus Booking System Banner">
 </p>
 
-A modern bus reservation platform built using **React**, **Spring Boot**, and **PostgreSQL / H2**, designed with a layered backend architecture and a responsive user interface.
+<h1 align="center">Bus Booking System</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Frontend-React_18-blue?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Backend-Spring_Boot_3-green?style=for-the-badge&logo=springboot" />
-  <img src="https://img.shields.io/badge/Database-PostgreSQL_15-blue?style=for-the-badge&logo=postgresql" />
-  <img src="https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Deployment-Render-purple?style=for-the-badge&logo=render" />
+  A Full-Stack Bus Reservation Platform
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Frontend-React%2018-blue?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Backend-Spring%20Boot%203-green?style=for-the-badge&logo=springboot" />
+  <img src="https://img.shields.io/badge/Database-PostgreSQL%20%7C%20H2-blue?style=for-the-badge&logo=postgresql" />
+  <img src="https://img.shields.io/badge/Security-JWT-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
-A bus reservation platform built using **React**, **Spring Boot**, and **PostgreSQL** and modern engineering principles, modular backend architecture, and a clean scalable user interface.
+A full-stack bus reservation application built using **React 18, Spring Boot 3, and PostgreSQL/H2**. The platform provides user authentication, route-based bus search, seat availability, ticket booking, passenger management, and booking history through a responsive web interface.
 
 ---
 
 ## 🔍 Overview
 
-The **Bus Booking System** provides an end-to-end ticket reservation experience:
+The **Bus Booking System** provides an end-to-end online ticket reservation experience. Users can create accounts, log in securely, search for buses based on their travel routes, reserve seats for multiple passengers, and manage their bookings.
 
-- 🔐 JWT-secured authentication (Login & Registration)
-- 🚌 Route-based bus search with origin and destination filters
-- 🎫 Real-time seat availability and seat collision prevention
-- 👥 Multi-passenger booking in a single transaction
-- 🧾 User profile and booking history tracking
-- 💾 Embedded H2 database for out-of-the-box local running + PostgreSQL production support
-
----
+The application follows a layered backend architecture and uses RESTful APIs to connect the React frontend with the Spring Boot backend.
 
 ## ⭐ Key Features
 
-### 👨‍💻 User Features
-- Secure user registration and login
-- Real-time search for available buses
-- Real-time seat availability tracking
-- Multi-passenger ticket reservation
-- Personal profile management and booking history
+### 👨‍💻 User Authentication
+- User registration and login
+- JWT-based authentication
+- Secure API access using Spring Security
+- Stateless session management
 
-### 🛠 Technical Architecture
-- Layered backend architecture (Controller, Service, Repository, Entity)
-- Stateless session security using Spring Security 6 and JJWT
-- Dual database support (in-memory H2 for zero-config local testing, PostgreSQL for production)
-- Clean RESTful API design with validation
-- Responsive Single-Page Application (SPA) using React 18
+### 🚌 Bus Search and Reservation
+- Search buses using origin and destination
+- View available bus details
+- Check seat availability
+- Book tickets for multiple passengers
+- Prevent conflicting seat reservations
+
+### 👤 User Profile and Booking Management
+- View and manage personal profile
+- View previous booking history
+- Manage passenger information
+- Track booking details
+
+### 💾 Database Management
+- H2 in-memory database for local development
+- PostgreSQL support for persistent database deployment
+- Data management using Spring Data JPA and Hibernate
 
 ---
 
-## 🧠 Tech Stack
+## 🧠 Technology Stack
 
-### Frontend
-- React 18
-- React Router v7
-- Axios
-- Bootstrap 5
-
-### Backend
-- Java 17+ (fully compatible with Java 17, 21, and 25)
-- Spring Boot 3
-- Spring Security (JWT)
-- Spring Data JPA / Hibernate
-
-### Database
-- H2 Database (Default in-memory for instant local execution)
-- PostgreSQL (Optional production database)
+| Layer | Technologies |
+|---|---|
+| Frontend | React 18, JavaScript, Bootstrap 5 |
+| Routing | React Router v7 |
+| HTTP Client | Axios |
+| Backend | Java, Spring Boot 3 |
+| Security | Spring Security 6, JWT, JJWT |
+| ORM | Spring Data JPA, Hibernate |
+| Database | H2, PostgreSQL |
+| Build Tool | Maven |
 
 ---
 
 ## 🏗 System Architecture
 
+The application follows a three-layer architecture consisting of a React frontend, Spring Boot backend, and relational database.
+
 ```text
        ┌────────────────────────────┐
        │       React Frontend       │
-       │  (Runs on localhost:3000)  │
+       │                            │
+       │   React 18 + Bootstrap     │
        └──────────────┬─────────────┘
-                      │ HTTP REST APIs (JSON + JWT)
+                      │
+                      │ REST APIs
+                      │ JSON + JWT
                       ▼
        ┌────────────────────────────┐
-       │    Spring Boot Backend     │
-       │  (Runs on localhost:8082)  │
+       │     Spring Boot Backend    │
+       │                            │
+       │ Controllers                │
+       │ Services                   │
+       │ Repositories               │
+       │ Entities                   │
+       │ Security                   │
        └──────────────┬─────────────┘
+                      │
                       │ JPA / Hibernate
                       ▼
        ┌────────────────────────────┐
-       │     H2 / PostgreSQL DB     │
+       │         Database           │
+       │                            │
+       │       H2 / PostgreSQL      │
        └────────────────────────────┘
 ```
 
@@ -93,7 +108,11 @@ The **Bus Booking System** provides an end-to-end ticket reservation experience:
 ## 📁 Project Structure
 
 ```text
-bus-booking-system/
+Bus-Booking-System/
+│
+├── assets/
+│   └── banner.png
+│
 ├── frontend/
 │   ├── public/
 │   └── src/
@@ -107,83 +126,98 @@ bus-booking-system/
 │       ├── App.js
 │       └── index.js
 │
+├── screenshots/
+│
 ├── src/
-│   ├── main/java/com/busbooking/bus_booking_system/
-│   │   ├── config/          # DataInitializer
-│   │   ├── controller/      # REST API Controllers
-│   │   ├── entity/          # JPA Entities (User, Bus, Booking, Passenger)
-│   │   ├── repository/      # Spring Data Repositories
-│   │   ├── security/        # JWT & Security Configuration
-│   │   └── service/         # Business Logic Services
-│   └── main/resources/
-│       └── application.properties
+│   └── main/
+│       ├── java/com/busbooking/bus_booking_system/
+│       │   ├── config/
+│       │   ├── controller/
+│       │   ├── entity/
+│       │   ├── repository/
+│       │   ├── security/
+│       │   └── service/
+│       │
+│       └── resources/
+│           └── application.properties
 │
 ├── Dockerfile
 ├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── run-all.bat
+├── run-backend.bat
+├── run-frontend.bat
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Local Setup
+## 🖥 Application Screenshots
 
-### Prerequisites
-- Java 17 or higher
-- Node.js (v18+) & npm
-
-### Home Page  
+### Home Page
 ![](screenshots/homepage.png)
 
-### Login Success  
+### User Login
 ![](screenshots/login%20success%20page.png)
 
-### Registration Success  
+### User Registration
 ![](screenshots/registration%20success.png)
 
-### Bus Search  
+### Bus Search
 ![](screenshots/search%20buses%20page.png)
 
-### Booking Page  
+### Ticket Booking
 ![](screenshots/ticket%20booking%20page.png)
 
-### Booking Success  
+### Booking Confirmation
 ![](screenshots/booking%20success%20page.png)
 
-### User Profile  
+### User Profile
 ![](screenshots/user%20profile%20page.png)
-
-</details>
 
 ---
 
-### 1️⃣ Run Backend (Spring Boot)
+## ⚙️ Installation and Local Setup
 
-![](screenshots/api-login-postman.png)
-![](screenshots/api-register-postman.png)
-![](screenshots/api-buses-postman.png)
-![](screenshots/api-busById-postman.png)
-![](screenshots/api-bookings-postman.png)
+### Prerequisites
+
+Make sure the following tools are installed:
+
+- Java 17 or higher
+- Node.js 18 or higher
+- npm
+- Maven (or use the included Maven Wrapper)
+
+### 1. Clone the Repository
 
 ```bash
-# Package the application
-mvn clean package -DskipTests
+git clone https://github.com/somesh-chaudhary/Bus-Booking-System.git
 
-# Run the backend
+cd Bus-Booking-System
+```
+
+### 2. Run Backend (Spring Boot)
+
+Build the application:
+
+```bash
+mvn clean package -DskipTests
+```
+
+Run the generated JAR:
+
+```bash
 java -jar target/bus-booking-system-0.0.1-SNAPSHOT.jar
 ```
 
-Backend will start on: **http://localhost:8082**
+Backend URL:
 
-![](screenshots/database%201.png)
-![](screenshots/database%202.png)
-![](screenshots/database%203.png)
-![](screenshots/database%204.png)
+**http://localhost:8082**
 
----
+### 3. Run Frontend (React)
 
-### 2️⃣ Run Frontend (React)
-
-Open a new terminal in the `frontend` directory:
+Open another terminal:
 
 ```bash
 cd frontend
@@ -191,23 +225,64 @@ npm install
 npm start
 ```
 
-Frontend will open automatically at: **http://localhost:3000**
+Frontend URL:
+
+**http://localhost:3000**
+
+The React frontend communicates with the Spring Boot backend through REST APIs.
 
 ---
 
-## 🛣 REST API Summary
+## 🛣 REST API Documentation
 
-| Method | Endpoint | Description | Auth Required |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/auth/register` | Register a new user account | No |
-| `POST` | `/api/auth/login` | Log in and receive JWT token | No |
-| `GET` | `/api/buses` | Get all available buses | Yes (JWT) |
-| `GET` | `/api/buses?from=...&to=...` | Search buses by route | Yes (JWT) |
-| `GET` | `/api/buses/{id}` | Get bus details by ID | Yes (JWT) |
-| `POST` | `/api/bookings` | Book tickets for multiple passengers | Yes (JWT) |
-| `GET` | `/api/bookings/history` | Get booking history for logged-in user | Yes (JWT) |
-| `GET` | `/api/users/profile` | Get current user profile details | Yes (JWT) |
-| `PUT` | `/api/users/profile` | Update current user profile | Yes (JWT) |
+| Method | Endpoint | Description | Authentication |
+|---|---|---|---|
+| POST | `/api/auth/register` | Register a new user | Not required |
+| POST | `/api/auth/login` | Authenticate and receive JWT | Not required |
+| GET | `/api/buses` | Retrieve available buses | JWT required |
+| GET | `/api/buses?from=...&to=...` | Search buses by route | JWT required |
+| GET | `/api/buses/{id}` | Retrieve bus details | JWT required |
+| POST | `/api/bookings` | Create a multi-passenger booking | JWT required |
+| GET | `/api/bookings/history` | Retrieve booking history | JWT required |
+| GET | `/api/users/profile` | Retrieve user profile | JWT required |
+| PUT | `/api/users/profile` | Update user profile | JWT required |
 
 ---
 
+## 🧪 API Testing
+
+The following screenshots demonstrate API testing through Postman.
+
+![](screenshots/api-login-postman.png)
+
+![](screenshots/api-register-postman.png)
+
+![](screenshots/api-buses-postman.png)
+
+![](screenshots/api-busById-postman.png)
+
+![](screenshots/api-bookings-postman.png)
+
+---
+
+## 🗄 Database Screenshots
+
+![](screenshots/database%201.png)
+
+![](screenshots/database%202.png)
+
+![](screenshots/database%203.png)
+
+![](screenshots/database%204.png)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Built with React, Spring Boot and Java.
+</p>
